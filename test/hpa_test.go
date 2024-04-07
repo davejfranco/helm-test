@@ -82,3 +82,17 @@ func (s *hpaTest) TestMemoryUtilizationHpa() {
 	s.Require().Equal(expectedMemory, *hpa.Spec.Metrics[0].Resource.Target.AverageUtilization)
 
 }
+
+// Test to check if the HPA is disabled
+func (s *hpaTest) TestHpaDisabled() {
+	options := &helm.Options{
+		SetValues: map[string]string{
+			"autoscaling.enabled": "false",
+		},
+		KubectlOptions: k8s.NewKubectlOptions("", "", s.namespace),
+	}
+
+	_, err := helm.RenderRemoteTemplateE(s.T(), options, s.chartPath, s.release, s.templates)
+	// We expect an error because the HPA is disabled
+	s.Require().Error(err)
+}
