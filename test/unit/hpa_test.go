@@ -25,7 +25,7 @@ type hpaTest struct {
 func TestHpaTemplate(t *testing.T) {
 	t.Parallel() // marking the test to be run in Parallel
 
-	chartPath, err := filepath.Abs("../app")
+	chartPath, err := filepath.Abs("../../app")
 	fmt.Println(chartPath)
 	require.NoError(t, err)
 
