@@ -64,6 +64,7 @@ func (s *hpaTest) TestDefaultHpa() {
 
 }
 
+// Test hpa enabled and using Memory utilization
 func (s *hpaTest) TestMemoryUtilizationHpa() {
 
 	options := &helm.Options{

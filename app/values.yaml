@@ -5,15 +5,21 @@
 replicaCount: 1
 
 image:
-  repository: nginx
+  repository: ""
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "1.25.4-alpine-slim"
+  tag: ""
 
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
+ack:
+  enabled: false
+  #vpcId:
+  #securityGroup:
+  #  ingressRules: []
+  #  egressRules: []
 serviceAccount:
   # Specifies whether a service account should be created
   create: true
